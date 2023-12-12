@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  mi:
+    build: ./dockerfiles/mi
+    container_name: wso2mi    
+    volumes:
+      - ./conf/:/home/wso2carbon/wso2-config-volume
+    ports:
+    - "8280:8280"
+    - "8243:8243"
+    - "9191:9191"
+    - "9154:9154"

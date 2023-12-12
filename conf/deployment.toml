@@ -1,0 +1,45 @@
+[server]
+hostname = "localhost"
+offset = 0
+strict_service_path_validation = true
+
+[user_store]
+type = "read_only_ldap"
+
+[transport.http]
+#listener.port = 8280
+#listener.secured_port = 8243
+
+[mediation]
+#internal_http_api_port = 9191
+#internal_https_api_port = 9154
+
+#[management_api_basic_security_handler]
+#enable = true
+[[internal_apis.users]]
+user.name = "admin"
+user.password = "admin"
+
+[message_builders]
+text_html = "org.apache.axis2.format.PlainTextBuilder"
+
+[transport.vfs]
+listener.enabled = true
+
+[transport.rabbitmq]
+sender_enable = false
+listener_enable = false
+
+[[transport.rabbitmq.sender]]
+name = "AMQPConnectionFactory"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+
+[[transport.rabbitmq.listener]]
+name = "AMQPConnectionFactory"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
