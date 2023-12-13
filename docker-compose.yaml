@@ -1,10 +1,10 @@
 version: "3.8"
 services:
   mi:
-    build: ./dockerfiles/mi
+    image: wso2/wso2mi:latest #commmunity version
     container_name: wso2mi    
     volumes:
-      - ./conf/:/home/wso2carbon/wso2-config-volume
+      - ./mi-home/conf/deployment.toml:/home/wso2carbon/wso2-config-volume
     ports:
     - "8280:8280"
     - "8243:8243"
